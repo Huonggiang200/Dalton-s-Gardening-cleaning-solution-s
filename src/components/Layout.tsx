@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { DemoBanner } from './DemoBanner';
 import { Helmet } from 'react-helmet-async';
 import { CONFIG } from '../config';
 
@@ -13,10 +12,9 @@ export function Layout() {
         <html lang="en-GB" />
       </Helmet>
       
-      <DemoBanner />
       <Header />
       
-      <main className="flex-grow">
+      <main className="flex-grow pb-[68px] lg:pb-0">
         <Outlet />
       </main>
       

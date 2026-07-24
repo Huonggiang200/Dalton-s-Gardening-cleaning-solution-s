@@ -34,7 +34,7 @@ export function Header() {
   return (
     <>
       {/* Top info bar */}
-      <div className="bg-garden-green text-pure-white py-2 px-8 flex justify-between items-center text-xs tracking-wider relative z-50">
+      <div className="hidden md:flex bg-garden-green text-pure-white py-2 px-8 justify-between items-center text-xs tracking-wider relative z-50">
         <span className="hidden md:inline-block">BASED IN MIDDLETON • SERVING LEEDS AND NEARBY AREAS</span>
         <span className="md:hidden text-center w-full uppercase">Local garden & outdoor property care</span>
         <a href={`tel:${CONFIG.phone.replace(/\s/g, '')}`} className="hidden md:flex items-center gap-2 hover:text-workwear-yellow transition-colors font-bold uppercase">
@@ -47,15 +47,15 @@ export function Header() {
         className={cn(
           "sticky top-0 z-40 w-full transition-all duration-300",
           scrolled || !isHome ? "bg-pure-white border-b border-mist-grey shadow-sm" : "bg-pure-white border-b border-mist-grey",
-          "px-4 md:px-8 py-4 flex justify-between items-center"
+          "px-4 md:px-8 py-3 md:py-4 flex justify-between items-center"
         )}
       >
         <div className="max-w-[1400px] w-full mx-auto flex justify-between items-center">
           <Link to="/" className="flex flex-col relative z-50">
-            <span className="text-2xl font-[800] leading-none text-garden-green tracking-tighter">
+            <span className="text-xl md:text-2xl font-[800] leading-none text-garden-green tracking-tighter">
               {CONFIG.shortName.toUpperCase()}
             </span>
-            <span className="text-[10px] tracking-[0.2em] font-semibold text-field-green mt-1">
+            <span className="text-[9px] md:text-[10px] tracking-[0.2em] font-semibold text-field-green mt-1">
               GARDENING & CLEANING SOLUTIONS
             </span>
           </Link>
@@ -85,7 +85,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden relative z-50 p-2 -mr-2 text-garden-green"
+            className="lg:hidden relative z-50 p-2 -mr-2 text-garden-green min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -117,12 +117,12 @@ export function Header() {
       </header>
 
       {/* Mobile Bottom Conversion Bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-pure-white border-t border-mist-grey p-4 flex gap-3 z-50 pb-safe">
-        <a href={`tel:${CONFIG.phone.replace(/\s/g, '')}`} className="flex-1 flex justify-center items-center gap-2 border border-garden-green text-garden-green rounded-sm py-3 font-semibold text-sm active:bg-mist-grey">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-pure-white border-t border-mist-grey p-3 flex gap-3 z-50 pb-safe">
+        <a href={`tel:${CONFIG.phone.replace(/\s/g, '')}`} className="flex-1 flex justify-center items-center gap-2 border border-garden-green text-garden-green rounded-sm h-[44px] font-semibold text-sm active:bg-mist-grey">
           <Phone size={18} />
           Call
         </a>
-        <Link to="/get-a-quote" className="flex-1 flex justify-center items-center bg-workwear-yellow text-charcoal rounded-sm py-3 font-semibold text-sm active:bg-opacity-80">
+        <Link to="/get-a-quote" className="flex-1 flex justify-center items-center bg-workwear-yellow text-charcoal rounded-sm h-[44px] font-semibold text-sm active:bg-opacity-80">
           Get a Quote
         </Link>
       </div>

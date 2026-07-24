@@ -4,37 +4,55 @@ import { Link } from 'react-router-dom';
 import { PlaceholderImage } from '../components/PlaceholderImage';
 import { ArrowRight, CheckCircle2, ChevronRight, ChevronDown } from 'lucide-react';
 import { cn } from '../utils';
+import gardenMaintenanceImg from '../images/Garden Maintenance.jpg';
 
 // Section Components
 function Hero() {
   return (
-    <div className="col-span-1 md:col-span-12 lg:col-span-7 lg:row-span-4 bg-pure-white rounded-lg border border-mist-grey p-6 lg:p-8 flex flex-col justify-center relative overflow-hidden">
-      <div className="relative z-10">
-        <span className="text-field-green font-bold tracking-widest text-xs mb-3 block uppercase">
+    <div className="col-span-1 md:col-span-12 lg:col-span-7 lg:row-span-4 bg-pure-white rounded-lg border-0 md:border md:border-mist-grey flex flex-col md:flex-row relative overflow-hidden">
+      {/* Left Content Area */}
+      <div className="w-full md:w-[52%] relative z-20 bg-pure-white p-6 pt-5 md:p-8 lg:p-10 flex flex-col justify-center shrink-0">
+        
+        {/* Soft gradient transition on desktop */}
+        <div className="hidden md:block absolute top-0 -right-24 w-24 h-full bg-gradient-to-r from-pure-white to-transparent pointer-events-none z-10"></div>
+        
+        <span className="text-field-green font-bold tracking-widest text-xs mb-2 md:mb-3 block uppercase">
           Local Garden & Outdoor Property Care
         </span>
-        <h1 className="text-5xl lg:text-6xl font-[800] text-garden-green leading-[0.9] mb-4">
-          GET IT SORTED.<br/>KEEP IT SORTED.
+        
+        <h1 className="text-[clamp(40px,11vw,46px)] md:text-[clamp(2.5rem,5vw,4.25rem)] font-[800] text-garden-green leading-[0.95] mb-3 md:mb-4 uppercase break-words">
+          <span className="hidden md:inline">GET IT SORTED.<br/>KEEP IT SORTED.</span>
+          <span className="md:hidden">GET IT<br/>SORTED.<br/>KEEP IT<br/>SORTED.</span>
         </h1>
-        <p className="text-lg text-charcoal max-w-md mb-8 leading-snug">
+        
+        <p className="text-base md:text-lg text-charcoal max-w-[420px] mb-6 md:mb-8 leading-[1.45] md:leading-snug">
           Garden maintenance and outdoor property care across Leeds. From regular mowing to overgrown clearances.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link to="/get-a-quote" className="bg-workwear-yellow text-charcoal px-6 py-3 rounded-sm font-bold shadow-sm flex items-center justify-center gap-2 uppercase text-sm">
+        
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+          <Link to="/get-a-quote" className="w-full sm:w-auto bg-workwear-yellow text-charcoal px-6 py-3 rounded-sm font-bold shadow-sm flex items-center justify-center uppercase text-sm transition-colors hover:brightness-95">
             Send Photos for a Quote
           </Link>
-          <Link to="/our-work" className="border-2 border-garden-green text-garden-green px-6 py-3 rounded-sm font-bold uppercase text-sm text-center">
+          <Link to="/our-work" className="w-full sm:w-auto border-2 border-garden-green text-garden-green px-6 py-3 rounded-sm font-bold uppercase text-sm text-center transition-colors hover:bg-garden-green hover:text-pure-white">
             See the Work
           </Link>
         </div>
       </div>
-      <div className="absolute right-0 top-0 h-full w-full lg:w-1/2 bg-mist-grey grayscale opacity-20 pointer-events-none">
-        <PlaceholderImage filename="hero-after-leeds.webp" aspectRatio="16/9" className="w-full h-full object-cover" />
-      </div>
-      <div className="hidden lg:block absolute top-6 right-6 bg-pure-white/90 border border-garden-green/20 p-2 rounded shadow-xl text-[10px] font-bold z-20">
-        <div className="uppercase text-field-green mb-1">Example Finish</div>
-        <div className="w-32 h-20 bg-garden-green/10 rounded flex items-center justify-center text-garden-green relative overflow-hidden">
-          <PlaceholderImage filename="hero-after-leeds.webp" aspectRatio="16/9" className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply" />
+      
+      {/* Right Image Area */}
+      <div className="w-full h-[260px] md:h-auto md:w-[48%] relative shrink-0 flex-grow bg-mist-grey">
+        {/* Subtle dark green overlay */}
+        <div className="absolute inset-0 bg-[#1A2B23]/10 z-10 mix-blend-multiply pointer-events-none"></div>
+        
+        <img 
+          src={gardenMaintenanceImg} 
+          alt="Garden maintenance in Leeds" 
+          className="absolute inset-0 w-full h-full object-cover object-[center_70%] md:object-[center_60%]"
+        />
+        
+        {/* Understated Label */}
+        <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 z-20 bg-[#1A2B23] text-pure-white text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-[2px] shadow-sm">
+          GARDEN MAINTENANCE • LEEDS
         </div>
       </div>
     </div>
@@ -43,7 +61,7 @@ function Hero() {
 
 function TrustStrip() {
   return (
-    <div className="col-span-1 md:col-span-4 lg:row-span-2 bg-mist-grey rounded-lg p-6 flex flex-col justify-center gap-3">
+    <div className="col-span-1 md:col-span-4 lg:row-span-2 bg-mist-grey rounded-lg p-5 md:p-6 flex flex-col justify-center gap-3 h-[144px]">
       <div className="flex items-center gap-3 text-sm font-bold text-garden-green">
         <div className="w-4 h-4 bg-field-green rounded-full shrink-0"></div> Local family business
       </div>
@@ -63,23 +81,23 @@ function TrustStrip() {
 function ProblemLedChooser({ children }: { children?: React.ReactNode }) {
   return (
     <>
-      <Link to="/garden-clearance-leeds" className="col-span-1 md:col-span-6 lg:col-span-5 lg:row-span-2 bg-garden-green text-pure-white rounded-lg p-6 flex flex-col justify-between group hover:bg-[#1a4a3b] transition-colors">
+      <Link to="/garden-clearance-leeds" className="col-span-1 md:col-span-6 lg:col-span-5 lg:row-span-2 bg-garden-green text-pure-white rounded-lg p-5 md:p-6 flex flex-col justify-between group hover:bg-[#1a4a3b] transition-colors">
         <div>
           <h2 className="text-xl font-bold mb-1">"It's getting away from us."</h2>
           <p className="text-sm text-pure-white/70">For overgrown lawns, weeds, and gardens that need a proper reset.</p>
         </div>
-        <div className="flex justify-between items-end mt-8">
+        <div className="flex justify-between items-end mt-6 md:mt-8">
           <span className="text-xs font-bold text-workwear-yellow uppercase tracking-tighter">Garden Clearance</span>
           <div className="bg-pure-white/10 p-2 rounded-full"><ArrowRight size={16} /></div>
         </div>
       </Link>
 
-      <Link to="/garden-maintenance-leeds" className="col-span-1 md:col-span-6 lg:col-span-5 lg:row-span-2 bg-pure-white rounded-lg border border-mist-grey p-6 flex flex-col justify-between shadow-sm hover:border-workwear-yellow transition-colors group">
+      <Link to="/garden-maintenance-leeds" className="col-span-1 md:col-span-6 lg:col-span-5 lg:row-span-2 bg-pure-white rounded-lg border border-mist-grey p-5 md:p-6 flex flex-col justify-between shadow-sm hover:border-workwear-yellow transition-colors group">
         <div>
           <h2 className="text-xl font-bold mb-1 text-garden-green">"We need someone to keep on top of it."</h2>
           <p className="text-sm text-charcoal/70">Regular lawn, hedge, and general garden care arranged for you.</p>
         </div>
-        <div className="flex justify-between items-end mt-8">
+        <div className="flex justify-between items-end mt-6 md:mt-8">
           <span className="text-xs font-bold text-field-green uppercase">Regular Care</span>
           <div className="bg-garden-green/5 p-2 rounded-full"><ArrowRight size={16} /></div>
         </div>
@@ -87,7 +105,7 @@ function ProblemLedChooser({ children }: { children?: React.ReactNode }) {
 
       {children}
 
-      <Link to="/jet-washing-leeds" className="col-span-1 md:col-span-4 lg:row-span-2 bg-pure-white rounded-lg border border-mist-grey p-6 flex flex-col md:flex-row items-start md:items-center gap-4 hover:shadow-md transition-shadow group">
+      <Link to="/jet-washing-leeds" className="col-span-1 md:col-span-4 lg:row-span-2 bg-pure-white rounded-lg border border-mist-grey p-5 md:p-6 flex flex-col md:flex-row items-start md:items-center gap-4 hover:shadow-md transition-shadow group h-[114px]">
         <div className="w-24 h-24 shrink-0 bg-charcoal/5 rounded flex flex-col items-center justify-center p-2 text-center text-[10px] font-bold overflow-hidden relative">
           <PlaceholderImage filename="patio-jet-washing-leeds.webp" aspectRatio="1/1" className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-multiply" />
           <span className="text-field-green z-10 relative">BEFORE</span>
@@ -100,7 +118,7 @@ function ProblemLedChooser({ children }: { children?: React.ReactNode }) {
         </div>
       </Link>
 
-      <Link to="/garden-fencing-leeds" className="col-span-1 md:col-span-4 lg:row-span-2 bg-workwear-yellow rounded-lg p-6 flex flex-col justify-center relative overflow-hidden group">
+      <Link to="/garden-fencing-leeds" className="col-span-1 md:col-span-4 lg:row-span-2 bg-workwear-yellow rounded-lg p-5 md:p-6 flex flex-col justify-center relative overflow-hidden group h-[114px]">
         <div className="relative z-10">
           <h3 className="font-bold text-charcoal text-lg">Fencing & Decking</h3>
           <p className="text-xs text-charcoal/80 mt-1">Repairs, replacements and new timber work.</p>
@@ -411,7 +429,7 @@ export function Home() {
         <meta name="description" content="Local garden maintenance, overgrown garden clearance, fencing, decking and jet washing across Middleton and Leeds. Send photos for a free quote." />
       </Helmet>
       
-      <main className="p-4 lg:p-6 grid grid-cols-1 md:grid-cols-12 lg:grid-rows-6 gap-4 max-w-[1400px] w-full mx-auto my-4 lg:my-8">
+      <main className="px-5 py-6 md:p-4 lg:p-6 grid grid-cols-1 md:grid-cols-12 lg:grid-rows-6 gap-5 md:gap-4 max-w-[1400px] w-full mx-auto md:my-4 lg:my-8">
         <Hero />
         <ProblemLedChooser>
           <TrustStrip />
