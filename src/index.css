@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Archivo SemiExpanded", "Archivo", "Arial Narrow", sans-serif;
+  --font-body: "Source Sans 3", Arial, sans-serif;
+
+  --color-garden-green: #173F32;
+  --color-field-green: #668248;
+  --color-cool-white: #F4F7F3;
+  --color-mist-grey: #E5EAE6;
+  --color-charcoal: #18201C;
+  --color-workwear-yellow: #F2C14E;
+  --color-pure-white: #FFFFFF;
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-body);
+    color: var(--color-charcoal);
+    background-color: var(--color-cool-white);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+}
